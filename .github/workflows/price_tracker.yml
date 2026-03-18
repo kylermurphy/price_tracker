@@ -1,0 +1,41 @@
+name: Price Tracker
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 7am Eastern (UTC-5 standard / UTC-4 daylight)
+    - cron: "0 0 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
+  workflow_dispatch:        # allow manual runs from the Actions tab
+
+jobs:
+  check-prices:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write       # needed to commit updated history files back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          playwright install chromium --with-deps
+
+      - name: Run price tracker
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: price-tracker --config tracked.json
+
+      - name: Commit updated history files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add history_*.json
+          git diff --cached --quiet || git commit -m "chore: update price history [skip ci]"
+          git push

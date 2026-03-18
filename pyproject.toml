@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "price-tracker"
+version = "0.1.0"
+description = "A Playwright-based product price tracker with Discord alerts"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright",
+    "aiohttp",
+]
+
+[project.scripts]
+price-tracker = "tracker.price_tracker:_cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tracker*"]

@@ -1,0 +1,12 @@
+{
+  "_comment": "discord_webhook is optional here — set the DISCORD_WEBHOOK repo secret in GitHub Actions instead",
+
+  "products": [
+    {
+      "name": "Helly Hansen Jacket",
+      "url": "https://www.sportchek.ca/en/pdp/helly-hansen-men-s-juniper-3-0-h2flow-life-pockettm-insulated-ski-jacket-13008184f.html",
+      "threshold": 299.99,
+      "selectors": [".price__regular-price"]
+    }
+  ]
+}
