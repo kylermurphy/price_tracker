@@ -180,8 +180,6 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Price history files (generated at runtime)
-history_*.json
 
 # Playwright
 .playwright/
