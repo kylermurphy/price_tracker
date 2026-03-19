@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "0 12 * * *"   # 7am Eastern (UTC-5 standard / UTC-4 daylight)
     - cron: "0 0 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
+    - cron: "22 1 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
   workflow_dispatch:        # allow manual runs from the Actions tab
 
 jobs:
