@@ -2,9 +2,8 @@ name: Price Tracker
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 7am Eastern (UTC-5 standard / UTC-4 daylight)
-    - cron: "0 0 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
-    - cron: "23 1 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
+    - cron: "0 10 * * *"   # 7am Eastern (UTC-5 standard / UTC-4 daylight)
+    - cron: "0 21 * * *"    # 7pm Eastern (UTC-5 standard / UTC-4 daylight)
   workflow_dispatch:        # allow manual runs from the Actions tab
 
 jobs:
