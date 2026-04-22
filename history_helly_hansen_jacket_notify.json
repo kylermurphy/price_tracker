@@ -3,6 +3,12 @@
     "price": 460.0,
     "raw": "$460.00",
     "selector": "[class*='price']",
+    "timestamp": "2026-04-22T11:07:33.487391"
+  },
+  {
+    "price": 460.0,
+    "raw": "$460.00",
+    "selector": "[class*='price']",
     "timestamp": "2026-04-21T21:43:43.496525"
   },
   {
@@ -172,11 +178,5 @@
     "raw": "$460.00",
     "selector": "[class*='price']",
     "timestamp": "2026-03-24T10:54:14.002646"
-  },
-  {
-    "price": 460.0,
-    "raw": "$460.00",
-    "selector": "[class*='price']",
-    "timestamp": "2026-03-23T21:35:28.557578"
   }
 ]
