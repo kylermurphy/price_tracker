@@ -104,7 +104,7 @@ class PriceTracker:
     ):
         self.url = url
         self.history_file = Path(history_file)
-        self.selectors = selectors or DEFAULT_SELECTORS
+        self.selectors = selectors.extend(DEFAULT_SELECTORS)
         self.headless = headless
         self.discord_webhook = discord_webhook
         self.alert_threshold = alert_threshold
