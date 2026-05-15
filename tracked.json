@@ -17,7 +17,7 @@
 
     {
       "name": "3060",
-      "url": "https://www.zotacstore.com/us/certified-refurbished/geforce-rtx-3060-twin-edge"
+      "url": "https://www.zotacstore.com/us/certified-refurbished/geforce-rtx-3060-twin-edge",
       "selectors": [".special-price"]
     },
 
