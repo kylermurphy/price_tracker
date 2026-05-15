@@ -5,13 +5,13 @@
     {
       "name": "Helly Hansen Jacket",
       "url": "https://www.sportchek.ca/en/pdp/helly-hansen-men-s-juniper-3-0-h2flow-life-pockettm-insulated-ski-jacket-13008184f.html",
-      "threshold": 299.99
+      "threshold": 299.99,
       "selectors": [".nl-price--total--red"]
     },
 
     {
       "name": "Helly Hansen Jacket Notify",
-      "url": "https://www.sportchek.ca/en/pdp/helly-hansen-men-s-juniper-3-0-h2flow-life-pockettm-insulated-ski-jacket-13008184f.html"
+      "url": "https://www.sportchek.ca/en/pdp/helly-hansen-men-s-juniper-3-0-h2flow-life-pockettm-insulated-ski-jacket-13008184f.html",
       "selectors": [".nl-price--total--red"]
     },
 
@@ -23,13 +23,13 @@
 
      {
       "name": "3060 Gaming",
-      "url": "https://www.zotacstore.com/us/certified-refurbished/gaming-geforce-rtx-3060-12gb-gddr6"
+      "url": "https://www.zotacstore.com/us/certified-refurbished/gaming-geforce-rtx-3060-12gb-gddr6",
       "selectors": [".special-price"]
     },
     
     {
       "name": "3060 OC",
-      "url": "https://www.zotacstore.com/us/certified-refurbished/gaming-geforce-rtx-3060-twin-edge-oc"
+      "url": "https://www.zotacstore.com/us/certified-refurbished/gaming-geforce-rtx-3060-twin-edge-oc",
       "selectors": [".special-price"]
     }
   ]
