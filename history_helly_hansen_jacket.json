@@ -3,6 +3,12 @@
     "price": 322.0,
     "raw": "$322.00",
     "selector": ".nl-price--total--red",
+    "timestamp": "2026-05-16T21:45:26.719618"
+  },
+  {
+    "price": 322.0,
+    "raw": "$322.00",
+    "selector": ".nl-price--total--red",
     "timestamp": "2026-05-16T11:03:07.696668"
   },
   {
@@ -172,11 +178,5 @@
     "raw": "$460.00",
     "selector": "[class*='price']",
     "timestamp": "2026-04-16T21:41:25.433783"
-  },
-  {
-    "price": 460.0,
-    "raw": "$460.00",
-    "selector": "[class*='price']",
-    "timestamp": "2026-04-16T11:05:00.373944"
   }
 ]
