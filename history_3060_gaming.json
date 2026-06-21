@@ -3,6 +3,12 @@
     "price": 272.99,
     "raw": "$272.99",
     "selector": ".special-price",
+    "timestamp": "2026-06-21T12:11:40.437845"
+  },
+  {
+    "price": 272.99,
+    "raw": "$272.99",
+    "selector": ".special-price",
     "timestamp": "2026-06-20T22:05:01.440553"
   },
   {
@@ -172,11 +178,5 @@
     "raw": "$258.99",
     "selector": ".special-price",
     "timestamp": "2026-06-06T11:28:17.447930"
-  },
-  {
-    "price": 258.99,
-    "raw": "$258.99",
-    "selector": ".special-price",
-    "timestamp": "2026-06-05T22:14:12.666300"
   }
 ]
