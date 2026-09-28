@@ -18,7 +18,7 @@
       "_comment_threshold": "Optional. Sends a Discord alert when the price is at or below this value. If omitted, a Discord message is sent on every successful check instead.",
 
       "selectors": [".product-price"],
-      "_comment_selectors": "Optional. CSS selectors to try in order, most specific first. When given, these are used INSTEAD OF the built-in DEFAULT_SELECTORS (not merged with them). If omitted, DEFAULT_SELECTORS is used.",
+      "_comment_selectors": "Optional. CSS selectors to try first, in order, most specific first. The built-in DEFAULT_SELECTORS are tried after them as a fallback. If omitted, DEFAULT_SELECTORS is tried from the start.",
 
       "discord_webhook": "",
       "_comment_discord_webhook": "Optional. Per-product webhook that overrides the top-level discord_webhook for this product only. Leave empty ('') to use the top-level default (which itself may fall back to DISCORD_WEBHOOK).",

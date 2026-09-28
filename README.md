@@ -43,7 +43,7 @@ price-tracker --config other.json      # use a different file
 | `name` | yes | Product name shown in Discord alerts |
 | `url` | yes | Full product page URL |
 | `threshold` | no | Alert when price drops to or below this value. If omitted, alerts on every check |
-| `selectors` | no | CSS selectors to find the price element. Falls back to built-in defaults |
+| `selectors` | no | CSS selectors to try first, in order; the built-in defaults are tried after them |
 | `discord_webhook` | no | Per-product webhook. Overrides the top-level default |
 
 The top-level `discord_webhook` is a shared default used by all products that don't define their own.

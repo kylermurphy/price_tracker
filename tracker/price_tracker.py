@@ -33,7 +33,7 @@ Config file format (tracked.json)
           "name": "Helly Hansen Jacket",
           "url": "https://www.sportchek.ca/...",
           "threshold": 299.99,
-          "selectors": [".price__regular-price"],   // optional override
+          "selectors": [".price__regular-price"],   // tried first, then the built-in defaults
           "discord_webhook": "https://..."           // optional per-product override
         }
       ]
@@ -80,7 +80,7 @@ class PriceTracker:
     history_file : str or Path, optional
         Where to persist price history (default: price_history.json).
     selectors : list[str], optional
-        CSS selectors to try in order. Falls back to DEFAULT_SELECTORS.
+        CSS selectors to try first, in order, then the built-in DEFAULT_SELECTORS.
     headless : bool
         Run browser headlessly (default: True).
     discord_webhook : str, optional
@@ -104,7 +104,14 @@ class PriceTracker:
     ):
         self.url = url
         self.history_file = Path(history_file)
-        self.selectors = selectors or DEFAULT_SELECTORS
+        if selectors:
+            self.own_selectors = list(selectors)
+            self.selectors = list(selectors) + [
+                s for s in DEFAULT_SELECTORS if s not in selectors
+            ]
+        else:
+            self.own_selectors = list(DEFAULT_SELECTORS)
+            self.selectors = list(DEFAULT_SELECTORS)
         self.headless = headless
         self.discord_webhook = discord_webhook
         self.alert_threshold = alert_threshold
@@ -220,10 +227,23 @@ class PriceTracker:
 
     async def _load_page(self, page):
         await page.goto(self.url, wait_until="domcontentloaded", timeout=30_000)
-        combined = ", ".join(self.selectors)
+        own_combined = ", ".join(self.own_selectors)
         try:
-            await page.wait_for_selector(combined, timeout=15_000)
+            await page.wait_for_selector(own_combined, timeout=15_000)
+            return
         except Exception:
+            # Own selectors didn't show up in time. If there are fallback
+            # (DEFAULT_SELECTORS) entries beyond the own ones, give those a
+            # short extra window — a slow, JS-rendered site-specific price
+            # shouldn't get shadowed by a generic selector like
+            # [class*='price'] that would otherwise win a single combined wait.
+            if len(self.selectors) > len(self.own_selectors):
+                combined = ", ".join(self.selectors)
+                try:
+                    await page.wait_for_selector(combined, timeout=5_000)
+                    return
+                except Exception:
+                    pass
             raise ValueError(
                 "No price selector appeared after 15s. "
                 "Run debug() to find the right selector."
@@ -333,7 +353,7 @@ def _tracker_from_config_entry(entry: dict, default_webhook: str | None) -> Pric
         url=entry["url"],
         product_name=name,
         history_file=history_file,
-        selectors=entry.get("selectors") or DEFAULT_SELECTORS,
+        selectors=entry.get("selectors"),
         discord_webhook=entry.get("discord_webhook") or default_webhook,
         alert_threshold=entry.get("threshold"),
     )
