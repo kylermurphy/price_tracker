@@ -5,17 +5,18 @@ A standalone price tracker using Playwright, with optional Discord webhook alert
 
 Run directly
 ------------
-    python price_tracker.py                        # uses tracked.json in same folder
-    python price_tracker.py --config my_tracked.json
+    price-tracker                                   # uses tracked.json in the current directory
+    price-tracker --config my_tracked.json
 
 Jupyter / import
 ----------------
-    from price_tracker import PriceTracker, run_from_config
+    import os
+    from tracker import PriceTracker, run_from_config
 
     # Single product
     tracker = PriceTracker(
         url="https://www.sportchek.ca/...",
-        discord_webhook="https://discord.com/api/webhooks/...",
+        discord_webhook=os.environ.get("DISCORD_WEBHOOK"),
         alert_threshold=299.99,
         product_name="Helly Hansen Jacket",
     )
@@ -27,21 +28,23 @@ Jupyter / import
 Config file format (tracked.json)
 ---------------------------------
     {
-      "discord_webhook": "https://discord.com/api/webhooks/...",  // shared default
+      "discord_webhook": "",                        // shared default; "" falls back to DISCORD_WEBHOOK env var
       "products": [
         {
           "name": "Helly Hansen Jacket",
           "url": "https://www.sportchek.ca/...",
           "threshold": 299.99,
           "selectors": [".price__regular-price"],   // tried first, then the built-in defaults
-          "discord_webhook": "https://..."           // optional per-product override
+          "discord_webhook": ""                      // optional per-product override; "" falls back to the shared default
         }
       ]
     }
 
+    See tracked.example.json for the full documented example.
+
 Install
 -------
-    pip install playwright aiohttp
+    pip install -e .                    # package + dependencies, from pyproject.toml
     playwright install chromium --with-deps
 """
 
@@ -397,8 +400,9 @@ async def run_from_config(config_path: str | Path = "tracked.json") -> list[dict
 def _cli():
     usage = (
         "Usage:\n"
-        "  python price_tracker.py                        # run all products from tracked.json\n"
-        "  python price_tracker.py --config <file>        # use a different config file\n"
+        "  price-tracker                          # run all products from tracked.json\n"
+        "  price-tracker --config <file>          # -c <file>: use a different config file\n"
+        "  price-tracker --help                   # -h: show this message\n"
     )
 
     config_path = "tracked.json"
