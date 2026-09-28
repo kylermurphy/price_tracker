@@ -1,0 +1,36 @@
+{
+  "_comment": "Example config for price_tracker.py. Copy this file to tracked.json and edit it with your own products.",
+
+  "discord_webhook": "",
+  "_comment_discord_webhook": "Shared default Discord webhook, used by any product below that doesn't set its own. Leave empty ('') to fall back to the DISCORD_WEBHOOK environment variable -- that's how the scheduled GitHub Actions workflow supplies it, via a repo secret. Never commit a real webhook URL here.",
+
+  "products": [
+    {
+      "_comment": "Full example showing every supported key. Only 'name' and 'url' are required -- everything else below is optional.",
+
+      "name": "Example Jacket",
+      "_comment_name": "Required. Human-readable product name, used in Discord messages and (lowercased/sanitized) as the default history filename.",
+
+      "url": "https://www.example.com/products/example-jacket",
+      "_comment_url": "Required. Full product page URL to load and scrape.",
+
+      "threshold": 299.99,
+      "_comment_threshold": "Optional. Sends a Discord alert when the price is at or below this value. If omitted, a Discord message is sent on every successful check instead.",
+
+      "selectors": [".product-price"],
+      "_comment_selectors": "Optional. CSS selectors to try in order, most specific first. When given, these are used INSTEAD OF the built-in DEFAULT_SELECTORS (not merged with them). If omitted, DEFAULT_SELECTORS is used.",
+
+      "discord_webhook": "",
+      "_comment_discord_webhook": "Optional. Per-product webhook that overrides the top-level discord_webhook for this product only. Leave empty ('') to use the top-level default (which itself may fall back to DISCORD_WEBHOOK).",
+
+      "history_file": "history_example_jacket.json",
+      "_comment_history_file": "Optional. Path to the JSON file this product's price history is saved to. If omitted, it defaults to history_<name>.json, where <name> is the product's 'name' lowercased with any character that isn't a letter, digit, underscore or hyphen replaced by '_' -- e.g. 'Example Jacket' -> history_example_jacket.json."
+    },
+
+    {
+      "_comment": "Minimal example -- only the required keys.",
+      "name": "Example Product",
+      "url": "https://www.example.com/products/example-product"
+    }
+  ]
+}

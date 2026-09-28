@@ -12,7 +12,10 @@ pip install -e .
 playwright install chromium --with-deps
 ```
 
-**2. Edit `tracked.json` with your products:**
+**2. Copy `tracked.example.json` to `tracked.json` and add your products:**
+```bash
+cp tracked.example.json tracked.json
+```
 ```json
 {
   "discord_webhook": "https://discord.com/api/webhooks/YOUR/WEBHOOK",

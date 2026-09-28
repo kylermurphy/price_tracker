@@ -317,7 +317,7 @@ def load_config(config_path: str | Path = "tracked.json") -> dict:
     if not path.exists():
         raise FileNotFoundError(
             f"Config file not found: {path}\n"
-            "Create a tracked.json file — see tracked.example.json for the format."
+            "Copy tracked.example.json to tracked.json and edit it."
         )
     return json.loads(path.read_text())
 
