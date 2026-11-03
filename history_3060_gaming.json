@@ -1,5 +1,11 @@
 [
   {
+    "price": 485.99,
+    "raw": "$485.99",
+    "selector": ".special-price",
+    "timestamp": "2026-11-03T02:46:30.587354"
+  },
+  {
     "price": 599.99306001,
     "raw": "$599.99\nIN STOCK\nSKU ZT-A30600P-10M (R)",
     "selector": "[class*='price']",
@@ -172,11 +178,5 @@
     "raw": "$485.99",
     "selector": ".special-price",
     "timestamp": "2026-10-18T22:46:33.914355"
-  },
-  {
-    "price": 485.99,
-    "raw": "$485.99",
-    "selector": ".special-price",
-    "timestamp": "2026-10-18T13:48:52.374014"
   }
 ]
