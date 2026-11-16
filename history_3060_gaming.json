@@ -3,6 +3,12 @@
     "price": 502.19,
     "raw": "$502.19",
     "selector": ".special-price",
+    "timestamp": "2026-11-16T20:03:00.530227"
+  },
+  {
+    "price": 502.19,
+    "raw": "$502.19",
+    "selector": ".special-price",
     "timestamp": "2026-11-16T00:45:00.935569"
   },
   {
@@ -172,11 +178,5 @@
     "raw": "$599.99\nIN STOCK\nSKU ZT-A30600P-10M (R)",
     "selector": "[class*='price']",
     "timestamp": "2026-11-02T00:14:17.924909"
-  },
-  {
-    "price": 599.99306001,
-    "raw": "$599.99\nIN STOCK\nSKU ZT-A30600P-10M (R)",
-    "selector": "[class*='price']",
-    "timestamp": "2026-11-01T16:38:14.025237"
   }
 ]
