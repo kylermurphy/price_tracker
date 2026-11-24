@@ -3,6 +3,12 @@
     "price": 502.19,
     "raw": "$502.19",
     "selector": ".special-price",
+    "timestamp": "2026-11-24T20:32:22.261540"
+  },
+  {
+    "price": 502.19,
+    "raw": "$502.19",
+    "selector": ".special-price",
     "timestamp": "2026-11-24T05:08:44.015478"
   },
   {
@@ -172,11 +178,5 @@
     "raw": "$502.19",
     "selector": ".special-price",
     "timestamp": "2026-11-10T03:09:44.806638"
-  },
-  {
-    "price": 502.19,
-    "raw": "$502.19",
-    "selector": ".special-price",
-    "timestamp": "2026-11-09T20:29:37.523006"
   }
 ]
